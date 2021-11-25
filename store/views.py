@@ -27,6 +27,10 @@ def store(request, category_slug=None):
     }
     return render(request, "store/store.html", context)
 
+def get_product(request, id, product_slug):
+    print(" id ne cu teo :", id)
+    return render(request, "store/store.html")
+
 
 def product_detail(request, category_slug, product_slug):
     try:
