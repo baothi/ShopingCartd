@@ -1,0 +1,282 @@
+{% load static %}
+<!-- START Header -->
+<header>
+  <!-- Start Header Logo-->
+  <div class="header_logo col_4 visible-lg d-none">
+      <a href="index.html"><img src="{% static 'images/logo.png' %}" class="img-fluid" alt="logo" /></a>
+  </div>
+  <!-- End Header Logo-->
+  <!-- Start Header Navigation-->
+  <div class="col_6 visible-lg d-none">
+    <nav class="navbar-dark navbar-expand-lg navbar">
+      <!-- Navigation menu container -->
+      <div class="navbar-collapse collapse" id="collapseNavbar">
+        <!-- Navigation links -->
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link text-uppercase" href="index.html">Home </a>
+          </li>
+          <li class="nav-item dropdown mega-dropdown">
+            <a class="nav-link text-uppercase dropdown-toggle" href="product_list_with_sidebar.html">Shop</a>
+            <span class="menu_arrow flaticon-down-arrow-1"></span>
+            <ul class="dropdown-menu megamenu_full_screen">
+              <li class="w-100 text-capitalize">
+                <div class="container">
+                  <div class="row">
+                    {% for category in links %}
+                      <div class="col-lg-4">
+                          <ul>
+                            <li class="title_h5 w-100"><a href="{{ category.get_url }}">{{ category.category_name }}</a></li>
+                            <li class="w-100"><a href="javascript:void(0);">Men</a></li>
+                            <li class="w-100"><a href="javascript:void(0);">Women</a></li>
+                            <li class="w-100"><a href="javascript:void(0);">Accessories</a></li>
+                          </ul>
+                      </div>
+                    {% endfor %}
+                   <!--  <div class="col-lg-4">
+                      <ul>
+                        <li class="title_h5 w-100">Category-1</li>
+                        <li class="w-100"><a href="javascript:void(0);">Dresses</a></li>
+                        <li class="w-100"><a href="javascript:void(0);">Skirts</a></li>
+                        <li class="w-100"><a href="javascript:void(0);">shirts</a></li>
+                        <li class="w-100"><a href="javascript:void(0);">jeans</a></li>
+                        <li class="w-100"><a href="javascript:void(0);">sweaters</a></li>
+                        <li class="w-100"><a href="javascript:void(0);">sweatshirts</a></li>
+                        <li class="w-100"><a href="javascript:void(0);">pants short</a></li>
+                        <li class="w-100"><a href="javascript:void(0);">cords</a></li>
+                        <li class="w-100"><a href="javascript:void(0);">tracks & joggers</a></li>
+                      </ul>
+                    </div>
+                    <div class="col-lg-4">
+                      <ul>
+                        <li class="title_h5 w-100">category-2</li>
+                        <li class="w-100"><a href="javascript:void(0);">winter wear</a></li>
+                        <li class="w-100"><a href="javascript:void(0);">summer specials</a></li>
+                        <li class="w-100"><a href="javascript:void(0);">inner wears</a></li>
+                        <li class="w-100"><a href="javascript:void(0);">tops</a></li>
+                        <li class="w-100"><a href="javascript:void(0);">jackets</a></li>
+                      </ul>
+                    </div> -->
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown mega-dropdown">
+            <a class="nav-link text-uppercase" href="grids_blog_list.html">Blog</a>
+            <span class="menu_arrow flaticon-down-arrow-1"></span>
+            <ul class="dropdown-menu mega-dropdown-menu">                                    
+                <li class="w-100"><a href="grid_blog_list_with_sidebar.html">1 grid blog list with sidebar </a></li>
+                <li class="w-100"><a href="grids_blog_list.html">2 grids blog list</a></li>                                 
+            </ul>
+          </li>
+          <li class="nav-item dropdown mega-dropdown">
+            <a class="nav-link text-uppercase  dropdown-toggle" href="javascript:void(0);">Other Pages</a>
+            <span class="menu_arrow flaticon-down-arrow-1"></span>
+            <ul class="dropdown-menu mega-dropdown-menu">
+              <li class="w-100"><a href="index.html">Mega menu full screen</a></li>
+              <li class="w-100"><a href="categories_menu.html">Categories menu</a></li>
+              <li class="w-100"><a href="menu_with_sale_section.html">Menu with sale section</a></li>
+              <li class="w-100"><a href="collection_list.html">Collection list</a></li>
+              <li class="w-100"><a href="product_list_with_filter.html">Product list with filter</a></li>
+              <li class="w-100"><a href="product_list_with_sidebar.html">Product list with sidebar</a></li>
+              <li class="w-100"><a href="lookbook.html">Lookbook</a></li>                                    
+              <li class="w-100"><a href="coming_soon.html">Coming soon page</a></li>
+              <li class="w-100"><a href="my_account.html">My account</a></li>
+              <li class="w-100"><a href="404.html">404 page</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-uppercase" href="javascript:void(0);">sale</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <!-- End Header Navigation-->
+  <!-- Start Header Social Menu -->
+  <div class="col_3 visible-lg d-none">
+    <ul class="social_icons float-md-right">
+      <!-- Social links -->
+      <li class="login_icon">
+        <a href="login.html"><i class="flaticon-social"></i></a>
+      </li>
+      <li class="wishlist_icon">
+        <a href="wishlist.html"><i class="flaticon-heart"></i></a>
+      </li>
+      <li class="search_icon">
+        <a href="javascript:void(0);"><i class="flaticon-magnifying-glass"></i></a>
+        <div class="search_form">
+            <form>
+                <input type="text"  placeholder="search" class="text-capitalize" />
+                <button type="submit" class="vertical_middle"><i class="flaticon-magnifying-glass"></i></button>
+            </form>
+        </div>
+      </li>
+      <li class="cart_icon">
+        <a href="cart.html">
+          <i class="flaticon-shopping-bag"></i>
+          <span class="count text-white rounded-circle text-center">0 </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <!-- End Header Social Menu -->
+  <!-- Start Header Currency-->
+  <div class="header_currency col_4 text-right visible-lg d-none">
+    <div class="select_language">
+      <select class="selectpicker" data-width="fit">
+        <option data-content='<img src="{% static 'images/eng_flag.png' %}" alt="eng_flag" class="img-fluid"/> Eng'>Eng</option>
+        <option  data-content='<img src="{% static 'images/spain_flag.png' %}" alt="spain_flag" class="img-fluid"/> spa'>spa</option>
+      </select>
+    </div>
+    <div class="currencies_select">
+      <select class="selectpicker" data-width="fit">
+        <option data-content='usd'> Usd</option>
+        <option  data-content='eur'>Eur</option>
+      </select>
+    </div>
+  </div>
+  <!-- End Header Currency-->
+  <div class="header_mobile hidden-lg d-block">
+    <!-- Start Header Currency-->
+    <div class="header_currency text-right">
+      <div class="select_language">
+        <select class="selectpicker" data-width="fit">
+          <option data-content='<img src="{% static 'images/eng_flag.png' %}" alt="eng_flag" class="img-fluid" /> Eng'>Eng</option>
+          <option  data-content='<img src="{% static 'images/spain_flag.png' %}" alt="spain_flag" class="img-fluid"/> spa'>spa</option>
+        </select>
+      </div>
+      <div class="currencies_select">
+        <select class="selectpicker" data-width="fit">
+          <option data-content='usd'> Usd</option>
+          <option  data-content='eur'>Eur</option>
+        </select>
+      </div>
+    </div>
+    <!-- End Header Currency-->
+    <!-- Start Header Social Menu -->
+    <div class="social_icons_content">
+      <ul class="social_icons float-md-right">
+        <!-- Social links -->
+        <li class="login_icon">
+          <a href="login.html"><i class="flaticon-social"></i></a>
+        </li>
+        <li class="wishlist_icon">
+          <a href="wishlist.html"><i class="flaticon-heart"></i></a>
+        </li>
+        <li class="search_icon">
+          <a href="javascript:void(0);"><i class="flaticon-magnifying-glass"></i></a>
+          <div class="search_form">
+            <form>
+              <input type="text"  placeholder="search" class="text-capitalize" />
+              <button type="submit" class="vertical_middle"><i class="flaticon-magnifying-glass"></i></button>
+            </form>
+          </div>
+        </li>
+        <li class="cart_icon">
+          <a href="cart.html">
+            <i class="flaticon-shopping-bag"></i>
+            <span class="count text-white rounded-circle text-center">0 </span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- End Header Social Menu -->
+    <!-- Start Header Logo-->
+    <div class="header_logo col_4">
+      <a href="index.html"><img src="{% static 'images/logo.png' %}" class="img-fluid" alt="logo" /></a>
+    </div>
+    <!-- End Header Logo-->
+    <!-- Start Header Navigation-->
+    <nav class="navbar-dark navbar-expand-lg navbar">
+      <!-- Button for toggling the visibility of the menu -->
+      <button type="button" data-toggle="collapse" class="navbar-toggler">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="26" viewBox="0 0 28 26">           
+        <path id="menu" class="cls-1" fill="#333" d="M0,0H28V2H0V0ZM0,8H20v2H0V8Zm0,8H28v2H0V16Zm0,8H17v2H0V24Z"></path>        
+        </svg>
+      </button>
+      <!-- Navigation menu container -->
+      <div class="navbar-collapse collapse ">
+        <!-- Navigation links -->
+        <div class="close_icon"><a class="menu_colse" href="javascript:void(0);"><i class="flaticon-close"></i></a></div>
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link text-uppercase" href="index.html">Home </a>
+          </li>
+          <li class="nav-item dropdown mega-dropdown">
+              <a class="nav-link text-uppercase dropdown-toggle" href="product_list_with_sidebar.html">Shop</a>
+              <span class="menu_arrow flaticon-down-arrow-1"></span>
+              <ul class="dropdown-menu megamenu_mobile">
+                <li class="w-100 nav-item">
+                  <a href="javascript:void(0);" class="nav-link">products</a>
+                  <span class="menu_arrow flaticon-down-arrow-1"></span>
+                  <ul>
+                    <li class="w-100"><a href="javascript:void(0);">Men</a></li>
+                    <li class="w-100"><a href="javascript:void(0);">Women</a></li>
+                    <li class="w-100"><a href="javascript:void(0);">Accessories</a></li>
+                  </ul>
+                </li>
+                <li class="w-100 nav-item">
+                  <a href="javascript:void(0);" class="nav-link">Category-1</a>
+                  <span class="menu_arrow flaticon-down-arrow-1"></span>
+                  <ul>
+                    <li class="w-100"><a href="javascript:void(0);">Dresses</a></li>
+                    <li class="w-100"><a href="javascript:void(0);">Skirts</a></li>
+                    <li class="w-100"><a href="javascript:void(0);">shirts</a></li>
+                    <li class="w-100"><a href="javascript:void(0);">jeans</a></li>
+                    <li class="w-100"><a href="javascript:void(0);">sweaters</a></li>
+                    <li class="w-100"><a href="javascript:void(0);">sweatshirts</a></li>
+                    <li class="w-100"><a href="javascript:void(0);">pants short</a></li>
+                    <li class="w-100"><a href="javascript:void(0);">cords</a></li>
+                    <li class="w-100"><a href="javascript:void(0);">tracks & joggers</a></li>
+                  </ul>
+                </li>
+                <li class="w-100 nav-item">
+                  <a href="javascript:void(0);" class="nav-link">category-2</a>
+                  <span class="menu_arrow flaticon-down-arrow-1"></span>
+                  <ul>
+                    <li class="w-100"><a href="javascript:void(0);">winter wear</a></li>
+                    <li class="w-100"><a href="javascript:void(0);">summer specials</a></li>
+                    <li class="w-100"><a href="javascript:void(0);">inner wears</a></li>
+                    <li class="w-100"><a href="javascript:void(0);">tops</a></li>
+                    <li class="w-100"><a href="javascript:void(0);">jackets</a></li>
+                  </ul>
+                </li>
+              </ul>
+          </li>
+          <li class="nav-item dropdown mega-dropdown">
+              <a class="nav-link text-uppercase" href="grids_blog_list.html">Blog</a>
+              <span class="menu_arrow flaticon-down-arrow-1"></span>
+              <ul class="dropdown-menu mega-dropdown-menu">                                    
+                <li class="w-100"><a href="grid_blog_list_with_sidebar.html">1 grid blog list with sidebar </a></li>
+                <li class="w-100"><a href="grids_blog_list.html">2 grids blog list</a></li>                                     
+              </ul>
+          </li>
+          <li class="nav-item dropdown mega-dropdown">
+            <a class="nav-link text-uppercase  dropdown-toggle" href="javascript:void(0);">Other Pages</a>
+            <span class="menu_arrow flaticon-down-arrow-1"></span>
+            <ul class="dropdown-menu mega-dropdown-menu">
+              <li class="w-100"><a href="index.html">Mega menu full screen</a></li>
+              <li class="w-100"><a href="categories_menu.html">Categories menu</a></li>
+              <li class="w-100"><a href="menu_with_sale_section.html">Menu with sale section</a></li>
+              <li class="w-100"><a href="collection_list.html">Collection list</a></li>
+              <li class="w-100"><a href="product_list_with_filter.html">Product list with filter</a></li>
+              <li class="w-100"><a href="product_list_with_sidebar.html">Product list with sidebar</a></li>
+              <li class="w-100"><a href="lookbook.html">Lookbook</a></li>                                   
+              <li class="w-100"><a href="coming_soon.html">Coming soon page</a></li>
+              <li class="w-100"><a href="my_account.html">My account</a></li>
+              <li class="w-100"><a href="404.html">404 page</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link text-uppercase" href="javascript:void(0);">sale</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- End Header Navigation-->
+  </div>
+</header>
+<div class="menu_overlay"></div>
+<!-- END Header -->

@@ -1,0 +1,151 @@
+{% load static %}
+ <!-- START Footer -->
+    <footer class="wow fadeIn animated">
+        <div class="container">
+            <!-- Start Footer Top-->
+            <div class="footer_top">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6  wow fadeInUp ">
+                        <div class="border-left column">
+                            <a href="index.html"><img src="{% static 'images/logo.png' %}" alt="logo" class="img-fluid footer_logo"/></a>
+                            <p>There are many variations of passages of Lorem Ipsum has been the industry stand ard dummy text ever since...</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6  wow fadeInUp">
+                        <div class="border-left column">
+                            <h5 class="title_h5 text-capitalize">Need Help?</h5>
+                            <ul>
+                                <li><a href="javascript:void(0);">Customer Service</a></li>
+                                <li><a href="my_account.html">My Account</a></li>
+                                <li><a href="contactus.html">Contact Us</a></li>
+                                <li><a href="faq.html">FAQs</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6  wow fadeInUp">
+                        <div class="border-left column">
+                            <h5 class="title_h5 text-capitalize">Shopping With Us</h5>
+                            <ul>
+                                <li><a href="shipping_information.html">Shipping Information</a></li>
+                                <li><a href="returns_exchanges.html">Returns & Exchanges</a></li>
+                                <li><a href="size_chart.html">Size Charts</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6  wow fadeInUp">
+                        <div class="border-left column">
+                            <h5 class="title_h5 text-capitalize">About Us</h5>
+                            <ul>
+                                <li><a href="we_are_earthyellow.html">We Are Earthyellow</a></li>
+                                <li><a href="careers.html">Careers</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Footer Top-->
+            <!-- Start Footer Middle -->
+            <div class="footer_middle border-top">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4  wow fadeInUp">
+                        <h5 class="title_h5 text-center">Shop With Confidence</h5>
+                        <p class="text-center">Lorem ipsum dolor si amet consecter. </p>
+                        <ul class="text-center payment_content">
+                            <li><img src="{% static 'images/payments.png' %}" alt="payments" class="img-fluid" /></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-12 col-md-4  wow fadeInUp">
+                        <h5 class="title_h5 text-center text-capitalize">Secure Shopping</h5>
+                        <p class="text-center">Lorem ipsum dolor si amet consecter.</p>
+                        <ul class="text-center shopping_content">
+                            <li><img src="{% static 'images/certi.png' %}" alt="certi"/></li>
+                            <li><img src="{% static 'images/comodo.png' %}" alt="comodo"/></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-12 col-md-4  wow fadeInUp">
+                        <h5 class="title_h5 text-center text-capitalize">Stay Connected</h5>
+                        <p class="text-center">Lorem ipsum dolor si amet consecter.</p>
+                        <ul class="text-center footer_social_icons">
+                            <li><a href="javascript:void(0);"><i class="flaticon-facebook vertical_middle"></i></a></li>
+                            <li><a href="javascript:void(0);"><i class="flaticon-pinterest vertical_middle"></i></a></li>
+                            <li><a href="javascript:void(0);"><i class="flaticon-instagram-logo vertical_middle"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- End Footer Middle -->
+        </div>
+        <!-- Start Footer Bottom -->
+        <div class="footer_bottom text-center container-fluid  wow fadeInUp">
+            <div class="container"> 2018 &copy; Earthyellow All rights reserved.</div>
+        </div>
+        <!-- End Footer Bottom -->
+    </footer>
+    <!-- END Footer -->
+    <!-- Newsletter pop_up Section -->
+    <div class="modal" id="newsletter">
+        <div class="newsletter_popup modal-content">
+            <div class="news_form">
+                <!-- Start Header Logo-->
+                <div class="header_logo">
+                    <a href="index.html"><img src="{% static 'images/logo.png' %}" class="img-fluid" alt="logo" /></a>
+                </div>
+                <!-- End Header Logo-->
+                <h3 class="title_h3">Sign UP & <span>Get 20% </span>off</h3>
+                <h4 class="title_h4">Your First Order</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ut labore et dolore magna aliqua.</p>
+                <a class="new_close"><i class="flaticon-close"></i></a>
+                <form>
+                    <div class="form-group text-left">
+                        <label for="email" class="text-left title_h5">Enter Your Email</label>
+                        <input type="email" class="form-control" id="email" name="email">
+                    </div>
+                    <input type="submit" class="btn background-btn" value="SIGN UP">
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Newsletter pop_up Section End -->
+    <!-- jQuery js -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <!-- Bootstrap 4 dependency popper js  -->
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <!-- Bootstrap 4 js -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- Bootstrap 4 select js -->
+    <script src="{% static 'js/bootstrap-select.min.js' %}"></script>
+    <!-- OWL Carousel js -->
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <!-- jquery-ui js -->
+    <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+    <!-- mCustomScrollbar js -->
+    <script src="{% static 'js/jquery.mCustomScrollbar.min.js' %}"></script>
+    <!-- Cookie js -->
+    <script src="{% static 'js/cookie.js' %}"></script> 
+    <!-- Slider Revolution js -->
+    <script src="{% static 'revolution/js/jquery.themepunch.tools.min.js' %}"></script>
+    <script src="{% static 'revolution/js/jquery.themepunch.revolution.min.js' %}"></script>
+    <script src="{% static 'revolution/js/extensions/revolution.addon.particles.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'revolution/js/extensions/revolution.extension.parallax.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'revolution/js/extensions/revolution.extension.slideanims.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'revolution/js/extensions/revolution.extension.layeranimation.min.js' %}" type="text/javascript"></script>
+    <!-- Imagesloaded js -->
+    <script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+    <!-- Wow js -->
+    <script src="{% static 'js/wow.min.js' %}"></script>              
+    <!-- Page-scroll js -->
+    <script src="{% static 'js/page-scroll.js' %}"></script>
+    <!-- Instafeed js -->
+    <script src="{% static 'js/instafeed.min.js' %}"></script>
+    <!-- CountdownTimer js -->
+    <script src="{% static 'js/jquery.countdownTimer.js' %}" type="text/javascript"></script>
+    <!-- rotate js -->
+    <script src="{% static 'js/rotate.js' %}" type="text/javascript"></script>
+    <!-- slick js -->
+    <script src="{% static 'js/slick.min.js' %}" type="text/javascript"></script>
+    <!-- Comparison js -->
+    <script src="{% static 'js/comparison.js' %}" type="text/javascript"></script>
+    <!-- Earthyellow js -->
+    <script src="{% static 'js/custom.js' %}"></script> 
+  </body>
+</html>
