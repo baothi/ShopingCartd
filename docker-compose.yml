@@ -88,6 +88,7 @@ volumes:
 # docker-compose run --rm web
 
 #docker-compose build
+# python manage.py collectstatic
 #docker-compose -f production.yml up -d
 #docker-compose run web /usr/local/bin/python manage.py migrate
 #docker-compose run web /usr/local/bin/python manage.py makemigrations

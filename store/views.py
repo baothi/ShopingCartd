@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from store.models import Product#, ReviewRating
 from category.models import Category
+from django.http import HttpResponse, JsonResponse,HttpResponseRedirect
+import json
 
 # Create your views here.
 
@@ -27,8 +29,19 @@ def store(request, category_slug=None):
     }
     return render(request, "store/store.html", context)
 
-def get_product(request, id, product_slug):
-    print(" id ne cu teo :", id)
+def get_product_detail(request):
+    if request.method == "GET" and request.is_ajax():
+        objjson = {'success': False}
+        json_data = []
+        id = request.GET['id']
+        try:
+            product_detail = Product.objects.get(id=id)
+        except Exception as e:
+            raise e
+        json_data.append(product_detail)
+        objjson = {'success': True,'check_field': json_data}
+        print("2222================={{ id }}======================= : ",HttpResponse(json.dumps(objjson)))
+        return HttpResponse(json.dumps(objjson))
     return render(request, "store/store.html")
 
 
