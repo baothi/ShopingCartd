@@ -84,6 +84,8 @@ volumes:
 
 # docker exec -i postgres pg_restore -Fc -v -U postgres --dbname phongthuy < phongthuy.bak
 # docker-compose run postgres pg_dump -h postgres -U postgres ecommerce_shopping > ecommerce_shopping.dump
+
+# docker exec tools_postgres_1 bash -c "pg_dump --username=postgres --no-password --format=t ecommerce_shopping | gzip > backup_local_$(date +%Y-%m-%d).tar.gz"
 # docker exec -i supply_web_1 rails c
 # docker-compose run --rm web
 
