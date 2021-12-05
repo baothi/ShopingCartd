@@ -81,7 +81,11 @@
           <div class="product_content">
             <div class="product_title">
               <span class="product_price title_h4"> ${{ single_product.price }}</span>
-              <span class="stock text-right">In Stock</span>
+              {% if single_product.stock <= 0 %}
+                <span class="stock text-right">Out Of Stock</span>
+              {% else %}
+                <span class="stock text-right">In Stock</span>
+              {% endif %}
               <p class="sku_text">SKU: {{ single_product.slug }}</p>
               <div class="star"><img src="{% static './images/star.png' %}"  class="img-fluid" alt="star" />(1 Review)</div>
             </div>
@@ -119,7 +123,11 @@
               <div class="product_btns">
                 <a href="wishlist.html" class="wishlist_btn border-btn text-uppercase">add to wishlist </a>
                 <!-- <button type="submit" class="background-btn text-uppercase cart_btn">add to bag</button> -->
-                <a href="cart.html" class="background-btn text-uppercase cart_btn">add to bag</a>
+                {% if single_product.stock <= 0 %}
+                  <span class="background text-uppercase">Out Of Stock</span>
+                {% else %}
+                  <a href="cart.html" class="background-btn text-uppercase cart_btn">add to bag</a>
+                {% endif %}
                 <div class="product_share">
                   <p>Share the love</p>
                   <ul class="social_icons">
@@ -394,7 +402,11 @@
                         <div class="product_content">
                             <div class="product_title">
                                 <span class="product_price title_h4"> $59.95</span>
-                                <span class="stock text-right">In Stock</span>
+                                {% if single_product.stock <= 0 %}
+                                  <span class="stock text-right">Out Of Stock</span>
+                                {% else %}
+                                  <span class="stock text-right">In Stock</span>
+                                {% endif %}
                                 <p class="sku_text">SKU: 01-2345678</p>
                                 <div class="star"><img src="{% static './images/star.png' %}"  class="img-fluid" alt="star" />(1 Review)</div>
                             </div>
@@ -432,7 +444,12 @@
                                 <div class="product_btns">
                                     <a href="wishlist.html" class="wishlist_btn border-btn text-uppercase">add to wishlist </a>
                                     <!-- <button type="submit" class="background-btn text-uppercase cart_btn">add to bag</button> -->
-                                    <a href="cart.html" class="background-btn text-uppercase cart_btn">add to bag</a>
+                                    
+                                    {% if single_product.stock <= 0 %}
+                                      <span class="background text-uppercase">Out Of Stock</span>
+                                    {% else %}
+                                      <a href="cart.html" class="background-btn text-uppercase cart_btn">add to bag</a>
+                                    {% endif %}
                                     <div class="product_share">
                                         <p>Share the love</p>
                                         <ul class="social_icons">

@@ -1,47 +1,48 @@
+{% load static %}
 <div class="container">
     <div class="row">
         <div class="col-lg-6">
             <div id="q_sync1" class="owl-carousel owl-theme">
                 <div class="item">
                     <div class="product_img">
-                        <img src="src/images/blue_jacket_img.png" alt="blue_jacket_img" class="vertical_middle img-fluid" />
+                        <img src="{{ product_detail.images.url }}" alt="blue_jacket_img" class="vertical_middle img-fluid" />
                     </div>
                 </div>
                 <div class="item">
                     <div class="product_img">
-                        <img src="src/images/blue_jacket_img2.png" alt="blue_jacket_img" class="vertical_middle img-fluid"/>
+                        <img src="{% static './images/blue_jacket_img2.png'%}" alt="blue_jacket_img" class="vertical_middle img-fluid"/>
                     </div>
                 </div>
                 <div class="item">
                     <div class="product_img">
-                        <img src="src/images/blue_jacket_img3.png" alt="blue_jacket_img" class="vertical_middle img-fluid"/>
+                        <img src="{% static './images/blue_jacket_img3.png'%}" alt="blue_jacket_img" class="vertical_middle img-fluid"/>
                     </div>
                 </div>
                 <div class="item">
                     <div class="product_img">
-                        <img src="src/images/blue_jacket_img4.png" alt="blue_jacket_img" class="vertical_middle img-fluid"/>
+                        <img src="{% static './images/blue_jacket_img4.png'%}" alt="blue_jacket_img" class="vertical_middle img-fluid"/>
                     </div>
                 </div>
             </div>
             <div id="q_sync2" class="owl-carousel owl-theme">
                 <div class="item">
                     <div class="product_img">
-                        <img src="src/images/blue_jacket_img.png" alt="blue_jacket_img" class="vertical_middle img-fluid"/>
+                        <img src="{% static './images/blue_jacket_img.png'%}" alt="blue_jacket_img" class="vertical_middle img-fluid"/>
                     </div>
                 </div>
                 <div class="item">
                     <div class="product_img">
-                        <img src="src/images/blue_jacket_img2.png" alt="blue_jacket_img" class="vertical_middle img-fluid"/>
+                        <img src="{% static './images/blue_jacket_img2.png'%}" alt="blue_jacket_img" class="vertical_middle img-fluid"/>
                     </div>
                 </div>
                 <div class="item">
                     <div class="product_img">
-                        <img src="src/images/blue_jacket_img3.png" alt="blue_jacket_img" class="vertical_middle img-fluid"/>
+                        <img src="{% static './images/blue_jacket_img3.png'%}" alt="blue_jacket_img" class="vertical_middle img-fluid"/>
                     </div>
                 </div>
                 <div class="item">
                     <div class="product_img">
-                        <img src="src/images/blue_jacket_img4.png" alt="blue_jacket_img" class="vertical_middle img-fluid"/>
+                        <img src="{% static './images/blue_jacket_img4.png'%}" alt="blue_jacket_img" class="vertical_middle img-fluid"/>
                     </div>
                 </div>
             </div>
@@ -50,9 +51,13 @@
             <div class="product_content">
                 <div class="product_title">
                     <span class="product_price title_h4">$ {{ product_detail.price }}</span>
-                    <span class="stock text-right">In Stock</span>
-                    <p class="sku_text">SKU: 01-2345678</p>
-                    <div class="star"><img src="src/images/star.png"  class="img-fluid" alt="star" />(1 Review)</div>
+                    {% if product_detail.stock <= 0 %}
+                      <span class="stock text-right">Out Of Stock</span>
+                    {% else %}
+                      <span class="stock text-right">In Stock</span>
+                    {% endif %}
+                    <p class="sku_text">SKU: {{ product_detail.slug }}</p>
+                    <div class="star"><img src="{% static './images/star.png'%}"  class="img-fluid" alt="star" />(1 Review)</div>
                 </div>
                 
                 <form>
@@ -87,7 +92,11 @@
                     </div>
                     <div class="product_btns">
                         <a href="wishlist.html" class="wishlist_btn border-btn text-uppercase">add to wishlist </a>
-                        <a href="cart.html" class="background-btn text-uppercase cart_btn">Add To Bag</a>
+                        {% if product_detail.stock <= 0 %}
+                          <span class="background text-uppercase">Out Of Stock</span>
+		                    {% else %}
+                        	<a href="cart.html" class="background-btn text-uppercase cart_btn">Add To Bag</a>
+		                    {% endif %}
                         <!-- <button type="submit" class="background-btn text-uppercase cart_btn">add to bag</button> -->
                         <div class="product_share">
                             <p>Share the love</p>
@@ -99,7 +108,7 @@
                         </div>
                     </div>
                     <div class="info_text">
-                        <a href="product_list_detail.html">View full info</a>
+                        <a href="{{ product_detail.get_url }}">View full info</a>
                     </div>
                 </form>
             </div>
