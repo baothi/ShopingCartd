@@ -39,7 +39,7 @@ def get_product_detail(request):
         context = {
         'product_detail': product_detail
         }
-        return render(request, 'store/partial_product_detail.html', context)
+        return render(request, 'store/product_detail_partial.html', context)
 
 
 def product_detail(request, category_slug, product_slug):
