@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="main_section">
+    <!-- START Breadcrumb   -->
+    <section class="breadcrumb_section">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item text-capitalize"><a href="index.html">Home</a> <i class="flaticon-arrows-4"></i></li>
+                    <li class="breadcrumb-item active text-capitalize">Your Cart</li>
+                </ol>
+            </nav>
+            <h1 class="title_h1 font-weight-normal text-capitalize">Your Cart</h1>
+        </div>
+    </section>
+    <!-- END Breadcrumb   -->
+    <!-- START Cart Section   -->
+    <section class="cart_section login_section padding-top-60 padding-bottom-60 check_out">
+        <div class="container">
+            <!-- START Contact From    -->
+            <div class="login_form">
+                <form>
+                    <div class="cart_table">
+                        <div class="table">
+                            <div class="thead">
+                                <div class="tr">
+                                    <div class="th title_h5 border-bottom border-top">Product</div>
+                                    <div class="th title_h5 border-bottom border-top">Price</div>
+                                    <div class="th title_h5 border-bottom border-top">Quantity</div>
+                                    <div class="th title_h5 border-bottom border-top">Total</div>
+                                    <div class="th border-bottom border-top"></div>
+                                </div>
+                            </div>
+                            <div class="tbody">
+                                <div class="tr">
+                                    <div class="td border-bottom" data-title="Product">
+                                        <div class="product_img d-table-cell ">
+                                            <img src="{% static './images/blue_jacket_img2.png'%}" class="vertical_middle img-fluid" alt="Blue Jacket">
+                                        </div>
+                                        <div class="product_details d-table-cell ">
+                                            <div class="product_title">
+                                                <a href="product_list_detail.html"><h5 class="title_h5">Blue Jacket</h5></a>
+                                            </div>
+                                            <div class="product_variant">
+                                                <p>Color: Blue</p>
+                                                <p>Size: XL</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="td border-bottom" data-title="Price">$59.95</div>
+                                    <div class="td border-bottom" data-title="Quantity">
+                                        <div class="form-group quantity_box">
+                                            <div class="qty_number"><input type="text" value="1" ></div>
+                                        </div>
+                                    </div>
+                                    <div class="td border-bottom" data-title="Total">$59.95</div>
+                                    <div class="td remove_cart border-bottom" data-title="Remove">
+                                        <a href="javascript:void(0);">
+                                            <i class="flaticon-close"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>                                    
+                        </div>
+                    </div>
+                    <div class="cart_subtotal text-right">
+                         <div class="subtotal_text">Subtotal</div>
+                         <div class="subtotal_price title_h4 text-right">$59.95</div>                                        
+                    </div>
+                    <div class="cart_btns text-right">
+                        <button type="submit" class="border-btn text-uppercase">Update Cart</button>
+                        <a href="product_list_with_sidebar.html" class="text-uppercase border-btn ">Continue shopping</a>
+                        <a href="checkout.html" class="text-uppercase background-btn">Proceed to checkout</a>
+                    </div>                            
+                    <div class="form-group cart_notes">
+                        <label class="title_h5" for="notes">Add a note for seller</label>
+                        <textarea  class="form-control" id="notes" name="Notes"></textarea>
+                    </div>
+                </form>
+            </div>
+            <!-- END Contact From    -->
+        </div>
+    </section>
+    <!-- END Cart Section  -->
+</div>
+{% endblock %}
