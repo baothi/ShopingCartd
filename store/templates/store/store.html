@@ -501,7 +501,7 @@
 	                              </li>
 	                          </ul>
 	                          <div class="featured_btn vertical_middle">
-	                              <a href="cart.html" class="text-uppercase background-btn add_to_bag_btn">Add To Bag</a>
+	                              <a href="{% url 'add_cart' product.id %}" class="text-uppercase background-btn add_to_bag_btn">Add To Bag</a>
 	                              <a href="javascript:void(0);" onclick="get_product_detail(this,{{product.id}})" class="text-uppercase border-btn popup_btn">Quick View</a>
 	                          </div>
 	                          <div class="product-label  text-uppercase sale-label ">sale<span class="diamond_shape"></span></div>

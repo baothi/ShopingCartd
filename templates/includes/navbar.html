@@ -114,9 +114,9 @@
         </div>
       </li>
       <li class="cart_icon">
-        <a href="cart.html">
+        <a href="{% url 'cart' %}">
           <i class="flaticon-shopping-bag"></i>
-          <span class="count text-white rounded-circle text-center">0 </span>
+          <span class="count text-white rounded-circle text-center">{{cart_count}} </span>
         </a>
       </li>
     </ul>

@@ -95,7 +95,7 @@
                         {% if product_detail.stock <= 0 %}
                           <span class="background text-uppercase">Out Of Stock</span>
 		                    {% else %}
-                        	<a href="cart.html" class="background-btn text-uppercase cart_btn">Add To Bag</a>
+                        	<a href="{% url 'add_cart' product_detail.id %}" class="background-btn text-uppercase cart_btn">Add To Bag</a>
 		                    {% endif %}
                         <!-- <button type="submit" class="background-btn text-uppercase cart_btn">add to bag</button> -->
                         <div class="product_share">
