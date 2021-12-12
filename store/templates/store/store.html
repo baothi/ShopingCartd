@@ -477,6 +477,7 @@
             <!-- START Collection Sorting-->
             <!-- START Products -->
             <ul class=" category-products  wow fadeIn row">
+              {% if product %}
               {% for product in products %}
 	              <li class="col-lg-3 col-md-4 col-6 column3 product  wow fadeInLeft animated" data-wow-duration="1300ms">
 	                  <div class="featured_content">
@@ -521,6 +522,11 @@
 	                  </div>
 	              </li>
               {% endfor %}
+              {% else %}
+                <div>
+                  <h2>No result found. Please try again. </h2>
+                </div>
+              {% endif %}
            </ul>
             <!-- END Products -->
             <!-- START Products Pagination -->

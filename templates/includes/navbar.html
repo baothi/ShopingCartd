@@ -107,8 +107,8 @@
       <li class="search_icon">
         <a href="javascript:void(0);"><i class="flaticon-magnifying-glass"></i></a>
         <div class="search_form">
-            <form>
-                <input type="text"  placeholder="search" class="text-capitalize" />
+            <form action="{% url 'search' %}" class="search" method='GET'>
+                <input type="text"  placeholder="search" class="text-capitalize" name="keyword"/>
                 <button type="submit" class="vertical_middle"><i class="flaticon-magnifying-glass"></i></button>
             </form>
         </div>
