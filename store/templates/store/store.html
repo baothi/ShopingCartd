@@ -525,13 +525,27 @@
             <!-- END Products -->
             <!-- START Products Pagination -->
             <div class="align-self-center">
+              {% if products.has_other_pages %}
                 <ul class="pagination text-center justify-content-center">
-                    <li class="page-item"><a class="page-link" href="javascript:void(0);"><i class="flaticon-arrows-1"></i></a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0);">1</a></li>
-                    <li class="page-item active"><a class="page-link" href="javascript:void(0);">2</a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0);"><i class="flaticon-arrows"></i></a></li>
+                    {% if products.has_previous %}
+                      <li class="page-item"><a class="page-link" href="?page={{products.previous_page_number}}"><i class="flaticon-arrows-1"></i></a></li>
+                    {% else %}
+                      <li class="page-item disabled"><a class="page-link" href="#"><i class="flaticon-arrows-1"></i></a></li>
+                    {% endif %}
+                    {% for i in products.paginator.page_range %}
+                        {% if products.number == i %}
+                          <li class="page-item active"><a class="page-link" href="#">{{i}}</a></li>
+                        {% else %}
+                          <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if products.has_next %}
+                      <li class="page-item"><a class="page-link" href="?page={{products.next_page_number}}"><i class="flaticon-arrows"></i></a></li>
+                    {% else %}
+                      <li class="page-item disabled"><a class="page-link" href="javascript:void(0);"><i class="flaticon-arrows"></i></a></li>
+                    {% endif %}
                 </ul>
+                {% endif %}
             </div>
             <!-- END Products Pagination -->
         </div>
