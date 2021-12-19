@@ -477,51 +477,51 @@
             <!-- START Collection Sorting-->
             <!-- START Products -->
             <ul class=" category-products  wow fadeIn row">
-              {% if product %}
-              {% for product in products %}
-	              <li class="col-lg-3 col-md-4 col-6 column3 product  wow fadeInLeft animated" data-wow-duration="1300ms">
-	                  <div class="featured_content">
-	                      <div class="featured_img_content">
-	                          <img src="{{ product.images.url }}" alt="f_product" class="img-fluid"/>
-	                          <ul class="product-date">
-	                              <li class="day background-btn">
-	                                  <span class="no">12</span>
-	                                  <span class="text text-capitalize">days</span>
-	                              </li>
-	                              <li class="hours background-btn">
-	                                  <span class="no">07</span>
-	                                  <span class="text text-capitalize">Hrs</span>
-	                              </li>
-	                              <li class="min background-btn">
-	                                  <span class="no">30</span>
-	                                  <span class="text text-capitalize">Mins</span>
-	                              </li>
-	                              <li class="second background-btn">
-	                                  <span class="no">15</span>
-	                                  <span class="text text-capitalize">Secs</span>
-	                              </li>
-	                          </ul>
-	                          <div class="featured_btn vertical_middle">
-	                              <a href="{% url 'add_cart' product.id %}" class="text-uppercase background-btn add_to_bag_btn">Add To Bag</a>
-	                              <a href="javascript:void(0);" onclick="get_product_detail(this,{{product.id}})" class="text-uppercase border-btn popup_btn">Quick View</a>
-	                          </div>
-	                          <div class="product-label  text-uppercase sale-label ">sale<span class="diamond_shape"></span></div>
-	                          <a href="javascript:void(0);" class="heart  rounded-circle text-center "><i class="flaticon-heart vertical_middle"></i></a>
-	                          
-	                      </div>
-	                      <div class="featured_detail_content">
-	                          <a href="{{ product.get_url }}"><p class="featured_title  text-capitalize  text-center">{{ product }}</p></a>
-	                          <p class="featured_price title_h5  text-center"><span class="compare_price">$59.95</span><span>${{ product.price }}</span></p>
-	                          <div class="featured_variyant  text-center">
-	                              <div class="radio text-uppercase  text-center">
-	                                  <input type="radio" name="size" id="radio14"/>
-	                                  <label for="radio14">M</label>
-	                              </div>
-	                          </div>
-	                      </div>
-	                  </div>
-	              </li>
-              {% endfor %}
+              {% if products %}
+                {% for product in products %}
+                  <li class="col-lg-3 col-md-4 col-6 column3 product  wow fadeInLeft animated" data-wow-duration="1300ms">
+                      <div class="featured_content">
+                          <div class="featured_img_content">
+                              <img src="{{ product.images.url }}" alt="f_product" class="img-fluid"/>
+                              <ul class="product-date">
+                                  <li class="day background-btn">
+                                      <span class="no">12</span>
+                                      <span class="text text-capitalize">days</span>
+                                  </li>
+                                  <li class="hours background-btn">
+                                      <span class="no">07</span>
+                                      <span class="text text-capitalize">Hrs</span>
+                                  </li>
+                                  <li class="min background-btn">
+                                      <span class="no">30</span>
+                                      <span class="text text-capitalize">Mins</span>
+                                  </li>
+                                  <li class="second background-btn">
+                                      <span class="no">15</span>
+                                      <span class="text text-capitalize">Secs</span>
+                                  </li>
+                              </ul>
+                              <div class="featured_btn vertical_middle">
+                                  <a href="{% url 'add_cart' product.id %}" class="text-uppercase background-btn add_to_bag_btn">Add To Bag</a>
+                                  <a href="javascript:void(0);" onclick="get_product_detail(this,{{product.id}})" class="text-uppercase border-btn popup_btn">Quick View</a>
+                              </div>
+                              <div class="product-label  text-uppercase sale-label ">sale<span class="diamond_shape"></span></div>
+                              <a href="javascript:void(0);" class="heart  rounded-circle text-center "><i class="flaticon-heart vertical_middle"></i></a>
+                              
+                          </div>
+                          <div class="featured_detail_content">
+                              <a href="{{ product.get_url }}"><p class="featured_title  text-capitalize  text-center">{{ product }}</p></a>
+                              <p class="featured_price title_h5  text-center"><span class="compare_price">$59.95</span><span>${{ product.price }}</span></p>
+                              <div class="featured_variyant  text-center">
+                                  <div class="radio text-uppercase  text-center">
+                                      <input type="radio" name="size" id="radio14"/>
+                                      <label for="radio14">M</label>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </li>
+                {% endfor %}
               {% else %}
                 <div>
                   <h2>No result found. Please try again. </h2>
