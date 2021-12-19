@@ -13,10 +13,10 @@ def _cart_id(request):
     return cart
 
 def add_cart(request, product_id):
-    print("=========================================================================================")
     product = Product.objects.get(id=product_id)  # get the product
     product_variation = []
     if request.method == 'POST':
+        print("===================", request.POST)
         for item in request.POST:
             key = item
             value = request.POST[key]
@@ -37,6 +37,7 @@ def add_cart(request, product_id):
     cart.save()
     is_cart_item_exits = CartItem.objects.filter(product=product, cart=cart).exists()
     if is_cart_item_exits:
+        print("22222222222222 : ", is_cart_item_exits)
         cart_item = CartItem.objects.filter(product=product,cart=cart)
         # Existing_vatiations -> database
         # current vatiation -> product_variation
