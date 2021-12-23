@@ -60,17 +60,17 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="td border-bottom" data-title="Price">${{ cart_item.product.price }}</div>
+                                    <div class="td border-bottom price_{{cart_item.id}}" data-title="Price">${{ cart_item.product.price }}</div>
                                     <div class="td border-bottom" data-title="Quantity">
                                         <div class="form-group quantity_box">
                                             <div class="qty_number">
-                                                <input type="text" value="{{ cart_item.quantity }}" >
-                                                <a href="javascript:void(0);" onclick="add_product_card(this,{{cart_item.product.id}},'{{ csrf_token}}')" class="inc button" style="z-index: 9;"><span>+</span></a>
+                                                <input type="text" id="quantity_{{cart_item.id}}" value="{{ cart_item.quantity }}" disabled>
+                                                <a href="javascript:void(0);" onclick="add_product_card(this,{{cart_item.product.id}},'{{ csrf_token}}',{{cart_item.id}})" class="inc button" style="z-index: 9;"><span>+</span></a>
                                                 <a href="{% url 'remove_cart' cart_item.product.id %}" class="dec button"  style="z-index: 9;"><span>-</span></a>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="td border-bottom" data-title="Total">${{ cart_item.sub_total }}</div>
+                                    <div class="td border-bottom total_{{cart_item.id}} linetotal" data-title="Total">${{ cart_item.sub_total }}</div>
                                     <div class="td remove_cart border-bottom" data-title="Remove">
                                         <a href="{% url 'remove_cart_item' cart_item.product.id %}">
                                             <i class="flaticon-close"></i>
@@ -83,15 +83,15 @@
                     </div>
                     <div class="cart_subtotal text-right">
                          <div class="subtotal_text">Total price</div>
-                         <div class="subtotal_price title_h4 text-right">${{total}}</div>                                        
+                         <div class="subtotal_price title_h4 text-right total_price">${{total}}</div>                                        
                     </div>
                     <div class="cart_subtotal text-right">
                          <div class="subtotal_text">Tax</div>
-                         <div class="subtotal_price title_h4 text-right">${{tax}}</div>                                        
+                         <div class="subtotal_price title_h4 text-right tax">${{tax}}</div>                                        
                     </div>
                     <div class="cart_subtotal text-right">
                          <div class="subtotal_text">Total</div>
-                         <div class="subtotal_price title_h4 text-right">${{grand_total}}</div>                                        
+                         <div class="subtotal_price title_h4 text-right grand_total">${{grand_total}}</div>                                        
                     </div>
                     <div class="cart_btns text-right">
                         <button type="submit" class="border-btn text-uppercase">Update Cart</button>
