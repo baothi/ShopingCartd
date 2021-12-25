@@ -41,7 +41,7 @@
                             </div>
                             <div class="tbody">
                                 {% for cart_item in cart_items %}
-                                <div class="tr">
+                                <div class="tr" id="cart_{{cart_item.id}}">
                                     <div class="td border-bottom" data-title="Product">
                                         <div class="product_img d-table-cell ">
                                             <img src="{{ cart_item.product.images.url }}" class="vertical_middle img-fluid" alt="Blue Jacket">
@@ -66,13 +66,17 @@
                                             <div class="qty_number">
                                                 <input type="text" id="quantity_{{cart_item.id}}" value="{{ cart_item.quantity }}" disabled>
                                                 <a href="javascript:void(0);" onclick="add_product_card(this,{{cart_item.product.id}},'{{ csrf_token}}',{{cart_item.id}})" class="inc button" style="z-index: 9;"><span>+</span></a>
-                                                <a href="{% url 'remove_cart' cart_item.product.id %}" class="dec button"  style="z-index: 9;"><span>-</span></a>
+                                               <!--  <a href="{% url 'remove_cart' cart_item.product.id cart_item.id %}" class="dec button"  style="z-index: 9;"><span>-</span></a> -->
+                                               <a href="javascript:void(0);" onclick="remove_cart(this,{{cart_item.product.id}},'{{ csrf_token}}',{{cart_item.id}})" class="dec button"  style="z-index: 9;"><span>-</span></a>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="td border-bottom total_{{cart_item.id}} linetotal" data-title="Total">${{ cart_item.sub_total }}</div>
                                     <div class="td remove_cart border-bottom" data-title="Remove">
-                                        <a href="{% url 'remove_cart_item' cart_item.product.id %}">
+                                        <!-- <a href="{% url 'remove_cart_item' cart_item.product.id cart_item.id%}">
+                                            <i class="flaticon-close"></i>
+                                        </a> -->
+                                        <a href="javascript:void(0);" onclick="remove_cart_item(this,{{cart_item.product.id}},'{{ csrf_token}}',{{cart_item.id}})">
                                             <i class="flaticon-close"></i>
                                         </a>
                                     </div>
