@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="main_section">
+    <!-- START Breadcrumb   -->
+    <section class="breadcrumb_section">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item text-capitalize"><a href="index.html">Home</a> <i class="flaticon-arrows-4"></i></li>
+                    <li class="breadcrumb-item active text-capitalize">Register</li>
+                </ol>
+            </nav>
+            <h1 class="title_h1 font-weight-normal text-capitalize">Register</h1>
+        </div>
+    </section>
+    <!-- END Breadcrumb   -->
+    <!-- START Register Section   -->
+    <section class="login_section register_section padding-top-text-60 padding-bottom-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 border-right">
+                    <div class="login_form">
+                        <form action="{% url 'register' %}" method="POST">
+                        	{% csrf_token %}
+                            <div class="form-group">
+                                <label for="fname" class="title_h5">First Name<span class="text-danger">*</span></label>
+                                <!-- <input type="text" class="form-control" id="fname" name="Firstname" required=""> -->
+                                {{ form.first_name }}
+                            </div>
+                            <div class="form-group">
+                                <label class="title_h5" for="lname">Last Name<span class="text-danger">*</span></label>
+                                <!-- <input type="text" class="form-control" id="lname" name="Lastname" required=""> -->
+                                {{ form.last_name }}
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="title_h5">Email<span class="text-danger">*</span></label>
+                                <!-- <input type="email" class="form-control" id="email" name="Email" required=""> -->
+                                {{ form.email }}
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="title_h5">Phone Number<span class="text-danger">*</span></label>
+                                <!-- <input type="email" class="form-control" id="email" name="Email" required=""> -->
+                                {{ form.phone_number }}
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="title_h5">Password<span class="text-danger">*</span></label>
+                                <!-- <input type="password" class="form-control" id="password" name="Password" required=""> -->
+                                {{ form.password }}
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="title_h5">Repeat Password<span class="text-danger">*</span></label>
+                                <!-- <input type="password" class="form-control" id="password" name="Password" required=""> -->
+                                {{ form.confirm_password }}
+                            </div>
+                            <div class="login_links ">
+                                <button type="submit" class="btn background-btn text-uppercase">Register</button>
+                                <p>or</p>
+                                <a class="btn-link return_text" href="product_list_with_sidebar.html">Return to shop</a>
+                            </div>
+                            {{form.non_field_errors}}
+                            {{form.email.errors}}
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-6 align-self-center">
+                    <div class="create_account">
+                        <h3 class="text-center title_h3 font-weight-normal">Login</h3>
+                        <p class="text-center">If you have already registered. Please <a href="{% url 'login' %}"><u>click here</u></a> to login to your account.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- END Register Section  -->
+</div>
+{% endblock %}
