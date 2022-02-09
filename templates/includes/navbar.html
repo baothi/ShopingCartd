@@ -33,30 +33,6 @@
                           </ul>
                       </div>
                     {% endfor %}
-                   <!--  <div class="col-lg-4">
-                      <ul>
-                        <li class="title_h5 w-100">Category-1</li>
-                        <li class="w-100"><a href="javascript:void(0);">Dresses</a></li>
-                        <li class="w-100"><a href="javascript:void(0);">Skirts</a></li>
-                        <li class="w-100"><a href="javascript:void(0);">shirts</a></li>
-                        <li class="w-100"><a href="javascript:void(0);">jeans</a></li>
-                        <li class="w-100"><a href="javascript:void(0);">sweaters</a></li>
-                        <li class="w-100"><a href="javascript:void(0);">sweatshirts</a></li>
-                        <li class="w-100"><a href="javascript:void(0);">pants short</a></li>
-                        <li class="w-100"><a href="javascript:void(0);">cords</a></li>
-                        <li class="w-100"><a href="javascript:void(0);">tracks & joggers</a></li>
-                      </ul>
-                    </div>
-                    <div class="col-lg-4">
-                      <ul>
-                        <li class="title_h5 w-100">category-2</li>
-                        <li class="w-100"><a href="javascript:void(0);">winter wear</a></li>
-                        <li class="w-100"><a href="javascript:void(0);">summer specials</a></li>
-                        <li class="w-100"><a href="javascript:void(0);">inner wears</a></li>
-                        <li class="w-100"><a href="javascript:void(0);">tops</a></li>
-                        <li class="w-100"><a href="javascript:void(0);">jackets</a></li>
-                      </ul>
-                    </div> -->
                   </div>
                 </div>
               </li>
@@ -95,15 +71,18 @@
   </div>
   <!-- End Header Navigation-->
   <!-- Start Header Social Menu -->
-  <div class="col_3 visible-lg d-none">
+  <div class="col_3 visible-lg d-none navbar-nav">
     <ul class="social_icons float-md-right">
       <!-- Social links -->
-      <li class="login_icon">
-        <a href="{% url 'login' %}"><i class="flaticon-social"></i></a>
-      </li>
-      <li class="wishlist_icon">
-        <a href="wishlist.html"><i class="flaticon-heart"></i></a>
-      </li>
+      {% if user.id is None %}
+        <li class="login_icon">
+          <a href="{% url 'login' %}"><i class="flaticon-social"></i></a>
+        </li>
+      {% else %}
+        <li class="wishlist_icon">
+          <a href="wishlist.html"><i class="flaticon-heart"></i></a>
+        </li>
+      {% endif %}
       <li class="search_icon">
         <a href="javascript:void(0);"><i class="flaticon-magnifying-glass"></i></a>
         <div class="search_form">
@@ -130,12 +109,15 @@
         <option  data-content='<img src="{% static 'images/spain_flag.png' %}" alt="spain_flag" class="img-fluid"/> spa'>spa</option>
       </select>
     </div>
+    {% if user.id is not None %}
     <div class="currencies_select">
-      <select class="selectpicker" data-width="fit">
-        <option data-content='usd'> Usd</option>
-        <option  data-content='eur'>Eur</option>
+      <select class="selectpicker" data-width="fit" id="selectBox" onchange="changeFunc();">
+        <option data-content='Welcome {{user.first_name}}'> Bao Thi</option>
+        <option data-content='Dashboard'>Dashboard</option>
+        <option value="logout,{{csrf_token}}" data-content='logout'>Logout</option>
       </select>
     </div>
+    {% endif %}
   </div>
   <!-- End Header Currency-->
   <div class="header_mobile hidden-lg d-block">

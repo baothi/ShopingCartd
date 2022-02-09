@@ -95,3 +95,26 @@ function remove_cart_item(obj,product_id,csrf_token,car_id){
         }
     });
 }
+
+setTimeout(function(){
+  $('#message').fadeOut('slow')
+}, 4000)
+
+function changeFunc() {
+    var selectBox = document.getElementById("selectBox");
+    var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+    var selected = selectedValue.split(",");
+    var logout = selected[selected.length-2];
+    var csrf_token = selected[selected.length-1];
+    var serializedData = $(this).serialize() + "&csrfmiddlewaretoken="+ csrf_token;
+    if(logout == 'logout'){
+        $.ajax({
+            type: 'POST',
+            url: '/accounts/logout/',
+            data: serializedData,
+            success: function (response) {
+                location.href='/accounts/login/';
+            }
+        });
+    }
+}

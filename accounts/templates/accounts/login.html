@@ -10,7 +10,7 @@
         <div class="container">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item text-capitalize"><a href="index.html">Home</a> <i class="flaticon-arrows-4"></i></li>
+                    <li class="breadcrumb-item text-capitalize"><a href="{% url 'home'%}">Home</a> <i class="flaticon-arrows-4"></i></li>
                     <li class="breadcrumb-item active text-capitalize">login</li>
                 </ol>
             </nav>
@@ -23,8 +23,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 border-right">
+                    {% include 'includes/alerts.html' %}
                     <div class="login_form">
-                        <form>
+                        <form action="{% url 'login' %}" method="POST">
+                            {% csrf_token %}
                             <div class="form-group">
                                 <label for="email" class="title_h5">Email</label>
                                 <input type="email" class="form-control" id="email" name="Email">
@@ -36,7 +38,7 @@
                             <div class="login_links ">
                                 <button type="submit" class="btn background-btn text-uppercase">login</button>
                                 <p>or</p>
-                                <a class="btn-link return_text" href="product_list_with_sidebar.html">Return to shop</a>
+                                <a class="btn-link return_text" href="{% url 'store'%}">Return to shop</a>
                                 <a class="btn-link text-right forgot_text" href="reset_password.html"><u>Forgot Password?</u></a>
                             </div>
                         </form>

@@ -23,6 +23,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 border-right">
+                	{% include 'includes/alerts.html' %}
                     <div class="login_form">
                         <form action="{% url 'register' %}" method="POST">
                         	{% csrf_token %}
