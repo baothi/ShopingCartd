@@ -20,6 +20,18 @@
     <!-- END Breadcrumb   -->
     <!-- START Login Section   -->
     <section class="login_section padding-top-text-60 padding-bottom-60">
+        <!-- ============================ COMPONENT LOGIN   ================================= -->
+        <!-- http://localhost:8000/accounts/login/?command=verification&email=baothi246@gmail.com -->
+
+        {% if request.GET.command == 'verification' %}
+
+            <div class="container mx-auto alert alert-info text-center" role="alert" style="max-width: 1024px; margin-top:100px;">
+            Thank you for registering with us. We have sent you a verification email to your email address [{{ request.GET.email }}]
+            <br><br>
+            Already verified? <a href="{% url 'login' %}">Login</a>
+            </div>
+
+        {% else %}
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 border-right">
@@ -29,17 +41,17 @@
                             {% csrf_token %}
                             <div class="form-group">
                                 <label for="email" class="title_h5">Email</label>
-                                <input type="email" class="form-control" id="email" name="Email">
+                                <input type="email" class="form-control" id="email" name="email">
                             </div>
                             <div class="form-group">
                                 <label for="password" class="title_h5">Password</label>
-                                <input type="password" class="form-control" id="password" name="Password">
+                                <input type="password" class="form-control" id="password" name="password">
                             </div>
                             <div class="login_links ">
                                 <button type="submit" class="btn background-btn text-uppercase">login</button>
                                 <p>or</p>
                                 <a class="btn-link return_text" href="{% url 'store'%}">Return to shop</a>
-                                <a class="btn-link text-right forgot_text" href="reset_password.html"><u>Forgot Password?</u></a>
+                                <a class="btn-link text-right forgot_text" href="{% url 'forgotPassword' %}"><u>Forgot Password?</u></a>
                             </div>
                         </form>
                     </div>
@@ -52,6 +64,9 @@
                 </div>
             </div>
         </div>
+        <!-- ============================ COMPONENT LOGIN  END.// ================================= -->
+        {% endif %}
+
     </section>
     <!-- END Login Section  -->
 </div>

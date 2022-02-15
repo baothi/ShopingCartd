@@ -113,7 +113,7 @@
     <div class="currencies_select">
       <select class="selectpicker" data-width="fit" id="selectBox" onchange="changeFunc();">
         <option data-content='Welcome {{user.first_name}}'> Bao Thi</option>
-        <option data-content='Dashboard'>Dashboard</option>
+        <option href="{% url 'dashboard'%}" data-content='Dashboard'>Dashboard</option>
         <option value="logout,{{csrf_token}}" data-content='logout'>Logout</option>
       </select>
     </div>
