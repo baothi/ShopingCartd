@@ -89,7 +89,19 @@
                   <span class="stock text-right">In Stock</span>
                 {% endif %}
                 <p class="sku_text">SKU: {{ single_product.slug }}</p>
-                <div class="star"><img src="{% static './images/star.png' %}"  class="img-fluid" alt="star" />(1 Review)</div>
+                <!-- <div class="star"><img src="{% static './images/star.png' %}"  class="img-fluid" alt="star" />(1 Review)</div> -->
+                <div class="star">
+                  <div class="rating-star">
+                    <span>
+                        <i class="fa fa-star{% if single_product.averageReview < 0.5 %}-o{% elif single_product.averageReview >= 0.5 and single_product.averageReview < 1 %}-half-o {% endif %}" aria-hidden="true"></i>
+                        <i class="fa fa-star{% if single_product.averageReview < 1.5 %}-o{% elif single_product.averageReview >= 1.5 and single_product.averageReview < 2 %}-half-o {% endif %}" aria-hidden="true"></i>
+                        <i class="fa fa-star{% if single_product.averageReview < 2.5 %}-o{% elif single_product.averageReview >= 2.5 and single_product.averageReview < 3 %}-half-o {% endif %}" aria-hidden="true"></i>
+                        <i class="fa fa-star{% if single_product.averageReview < 3.5 %}-o{% elif single_product.averageReview >= 3.5 and single_product.averageReview < 4 %}-half-o {% endif %}" aria-hidden="true"></i>
+                        <i class="fa fa-star{% if single_product.averageReview < 4.5 %}-o{% elif single_product.averageReview >= 4.5 and single_product.averageReview < 5 %}-half-o {% endif %}" aria-hidden="true"></i>
+                        <span>( {{single_product.countReview}} reviews)</span> {{single_product.averageReview}}
+                    </span>
+                  </div>
+                </div>
               </div>
             
               <div class="product_variant">
@@ -181,7 +193,7 @@
                                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                                   <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
                               </div> -->
-                              <form action="" method="POST">
+                              <form action="{% url 'submit_review' single_product.id %}" method="POST">
                                 {% csrf_token %}
                                 <div>
                                   <!-- Rating stars -->
@@ -242,19 +254,45 @@
                               <div class="card-body">
                                   <div class="review_title">
                                       <h4 class="title_h4">Customer Reviews</h4>
-                                      <div class="star"><img src="{% static './images/star.png' %}" class="img-fluid" alt="star"> Based on 1 review</div>
+                                      <div class="star">
+                                        <!-- <img src="{% static './images/star.png' %}" class="img-fluid" alt="star">  -->
+                                        <div class="rating-star">
+                                          <span>
+                                            <i class="fa fa-star{% if single_product.averageReview < 0.5 %}-o{% elif single_product.averageReview >= 0.5 and single_product.averageReview < 1 %}-half-o {% endif %}" aria-hidden="true"></i>
+                                            <i class="fa fa-star{% if single_product.averageReview < 1.5 %}-o{% elif single_product.averageReview >= 1.5 and single_product.averageReview < 2 %}-half-o {% endif %}" aria-hidden="true"></i>
+                                            <i class="fa fa-star{% if single_product.averageReview < 2.5 %}-o{% elif single_product.averageReview >= 2.5 and single_product.averageReview < 3 %}-half-o {% endif %}" aria-hidden="true"></i>
+                                            <i class="fa fa-star{% if single_product.averageReview < 3.5 %}-o{% elif single_product.averageReview >= 3.5 and single_product.averageReview < 4 %}-half-o {% endif %}" aria-hidden="true"></i>
+                                            <i class="fa fa-star{% if single_product.averageReview < 4.5 %}-o{% elif single_product.averageReview >= 4.5 and single_product.averageReview < 5 %}-half-o {% endif %}" aria-hidden="true"></i>
+                                            <span>{{single_product.countReview}} reviews</span>
+                                            </span>
+                                        </div>
+                                        Based on {{single_product.averageReview}} review
+                                      </div>
+
                                       <a href="javascript:void(0):" class="write_review_text">Write a review</a>
                                   </div>
+                                  {% for review in reviews %}
                                   <div class="review_content">
                                       <div class="user_img rounded-circle">
                                           <img src="{% static './images/reivew_user.png' %}" class="img-fluid vertical_middle" alt="star">
                                       </div>
                                       <div class="user_detail">
-                                          <h5 class="title_h5">Ammy G.</h5>
-                                          <span class="review__date">April 5, 2018</span>
-                                          <p>Curabitur egestas malesuada volutpat. Nunc vel vestibulum odio, ac pellen tesque lacus. Pellentesque dapibus nunc nec est imperdiet, a malesuada sem rutrum. </p>
+                                          <h5 class="title_h5">{{review.user.full_name}}</h5>
+                                          <span class="review__date">{{review.updated_at}}</span>
+                                          <div class="rating-star">
+                                            <span>
+                                              <i class="fa fa-star{% if review.rating == 0.5 %}-half-o{% elif review.rating < 1 %}-o {% endif %}" aria-hidden="true"></i>
+                                              <i class="fa fa-star{% if review.rating == 1.5 %}-half-o{% elif review.rating < 2 %}-o {% endif %}" aria-hidden="true"></i>
+                                              <i class="fa fa-star{% if review.rating == 2.5 %}-half-o{% elif review.rating < 3 %}-o {% endif %}" aria-hidden="true"></i>
+                                              <i class="fa fa-star{% if review.rating == 3.5 %}-half-o{% elif review.rating < 4 %}-o {% endif %}" aria-hidden="true"></i>
+                                              <i class="fa fa-star{% if review.rating == 4.5 %}-half-o{% elif review.rating < 5 %}-o {% endif %}" aria-hidden="true"></i>
+                                            </span>
+                                          </div>
+                                          <h6>{{review.subject}}</h6>
+                                          <p>{{review.review}} </p>
                                       </div>
                                   </div>
+                                  {% endfor %}
                               </div>
                           </div>
                       </div>

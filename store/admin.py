@@ -7,6 +7,9 @@ from .models import Product, Variation , ReviewRating#, ProductGallery
 #     model = ProductGallery
 #     extra = 1
 
+class Review(admin.ModelAdmin):
+    list_display = ('product', 'user', 'subject', 'rating', 'ip', 'updated_at')
+
 class ProductAdmin(admin.ModelAdmin):
     list_display = ('product_name', 'price', 'stock', 'category', 'modified_date', 'is_available')
     prepopulated_fields = {'slug': ('product_name',)}
@@ -19,5 +22,5 @@ class VariationAdmin(admin.ModelAdmin):
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Variation, VariationAdmin)
-admin.site.register(ReviewRating)
+admin.site.register(ReviewRating,Review)
 # admin.site.register(ProductGallery)
