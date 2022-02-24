@@ -59,7 +59,6 @@ ul.thumb li img{
   height: 80px;
   border: 1px solid grey;
 }
-
-a.order_detail{
-  color: red !important;
+.catwithsub li{
+  padding-left: 10px;
 }

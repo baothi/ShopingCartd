@@ -23,13 +23,17 @@
               <li class="w-100 text-capitalize">
                 <div class="container">
                   <div class="row">
-                    {% for category in links %}
+                    {% for cat in cats %}
                       <div class="col-lg-4">
-                          <ul>
-                            <li class="title_h5 w-100"><a href="{{ category.get_url }}">{{ category.category_name }}</a></li>
-                            <li class="w-100"><a href="javascript:void(0);">Men</a></li>
-                            <li class="w-100"><a href="javascript:void(0);">Women</a></li>
-                            <li class="w-100"><a href="javascript:void(0);">Accessories</a></li>
+                          <ul class="catwithsub">
+                            <li class="title_h5 w-100"><a href="{{ cat.url }}">{{ cat.parentname }}</a>
+                              <ul>
+                                {% for sub in cat.sub %}
+                                  <li class="w-100"><a href="javascript:void(0);">{{sub.subname}}</a></li>
+                                {% endfor %}
+                              </ul>
+                            </li>
+                           
                           </ul>
                       </div>
                     {% endfor %}
