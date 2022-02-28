@@ -1,9 +1,6 @@
 from django.shortcuts import render, get_object_or_404,redirect
-from store.models import Product, ReviewRating
+from store.models import Product, ReviewRating, ProductGallery
 from category.models import Category
-from django.http import HttpResponse, JsonResponse,HttpResponseRedirect
-import json
-from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.db.models import Q
 
 from carts.models import CartItem
@@ -71,14 +68,14 @@ def product_detail(request, category_slug, product_slug):
     reviews = ReviewRating.objects.filter(product_id=single_product.id, status=True)
 
     # # Get the product gallery
-    # product_gallery = ProductGallery.objects.filter(product_id=single_product.id)
+    product_gallery = ProductGallery.objects.filter(product_id=single_product.id)
 
     context = {
         'single_product': single_product,
         'in_cart'       : in_cart,
         'orderproduct': orderproduct,
         'reviews': reviews,
-        # 'product_gallery': product_gallery,
+        'product_gallery': product_gallery,
     }
     return render(request, 'store/product_detail.html', context)
 
@@ -102,7 +99,6 @@ def submit_review(request, product_id):
     if request.method == 'POST':
         try:
             reviews = ReviewRating.objects.get(user__id=request.user.id, product__id=product_id)
-            print("====================== : ", reviews)
             form = ReviewForm(request.POST, instance=reviews)
             form.save()
             messages.success(request, 'Thank you! Your review has been updated.')

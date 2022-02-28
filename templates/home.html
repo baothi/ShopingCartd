@@ -424,10 +424,10 @@
               <div class="featured_img_content">
                 <img src="{{ product.images.url }}" alt="f_product" class="img-fluid"/>
                 <div class="featured_btn vertical_middle">
-                  <a href="cart.html" class="text-uppercase background-btn add_to_bag_btn">Add To Bag</a>
-                  <a href="javascript:void(0);" class="text-uppercase border-btn popup_btn" data-modal="#modalone">Quick View</a>
+                  <!-- <a href="cart.html" class="text-uppercase background-btn add_to_bag_btn">Add To Bag</a> -->
+                  <a href="{{ product.get_url }}" class="text-uppercase border-btn popup_btn" >Quick View</a>
                 </div>
-                <a href="javascript:void(0);" class="heart  rounded-circle text-center "><i class="flaticon-heart vertical_middle"></i></a>
+                <!-- <a href="javascript:void(0);" class="heart  rounded-circle text-center "><i class="flaticon-heart vertical_middle"></i></a> -->
               </div>
               <div class="featured_detail_content">
                 <a href="product_list_detail.html"><p class="featured_title  text-capitalize  text-center">{{ product.product_name }}</p></a>

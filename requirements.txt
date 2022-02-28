@@ -2,3 +2,7 @@ Django==3.2.8
 psycopg2-binary==2.9.1
 Pillow==8.4.0
 requests==2.25.1
+django-admin-thumbnails==0.2.6
+python-decouple==3.6
+django-admin-honeypot==1.1.0
+django-session-timeout==0.1.0

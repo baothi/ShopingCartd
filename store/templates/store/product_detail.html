@@ -28,53 +28,27 @@
                 <img src="{{ single_product.images.url }}" alt="blue_jacket_img" class="vertical_middle img-fluid" />
               </div>
             </div>
-            <!-- <div class="item">
-              <div class="product_img">
-                <img src="{% static './images/blue_jacket_img2.png'%}" alt="blue_jacket_img" class="vertical_middle img-fluid"/>
-              </div>
-            </div>
+            {% for i in product_gallery %}
             <div class="item">
               <div class="product_img">
-                <img src="{% static './images/blue_jacket_img3.png' %}" alt="blue_jacket_img" class="vertical_middle img-fluid"/>
+                <img src="{{i.image.url}}" alt="blue_jacket_img" class="vertical_middle img-fluid" />
               </div>
             </div>
-            <div class="item">
-              <div class="product_img">
-                <img src="{% static './images/blue_jacket_img4.png' %}" alt="blue_jacket_img" class="vertical_middle img-fluid"/>
-              </div>
-            </div> -->
+            {% endfor %}
           </div>
           <div id="sync2" class="owl-carousel owl-theme">
             <div class="item">
               <div class="product_img">
-                <img src="{% static './images/blue_jacket_img.png' %}" alt="blue_jacket_img" class="vertical_middle img-fluid"/>
+                  <img src="{{ single_product.images.url }}" alt="blue_jacket_img" class="vertical_middle img-fluid"/>
               </div>
             </div>
-            <div class="item">
-              <div class="product_img">
-                <img src="{% static './images/blue_jacket_img2.png' %}" alt="blue_jacket_img" class="vertical_middle img-fluid"/>
-              </div>
+            {% for i in product_gallery %}
+              <div class="item">
+                <div class="product_img">
+                    <img src="{{i.image.url}}" alt="blue_jacket_img" class="vertical_middle img-fluid"/>
+                </div>
             </div>
-            <div class="item">
-              <div class="product_img">
-                <img src="{% static './images/blue_jacket_img3.png' %}" alt="blue_jacket_img" class="vertical_middle img-fluid"/>
-              </div>
-            </div>
-            <div class="item">
-              <div class="product_img">
-                <img src="{% static './images/blue_jacket_img4.png' %}" alt="blue_jacket_img" class="vertical_middle img-fluid"/>
-              </div>
-            </div>
-            <div class="item">
-              <div class="product_img">
-                <img src="{% static './images/blue_jacket_img3.png' %}" alt="blue_jacket_img" class="vertical_middle img-fluid"/>
-              </div>
-            </div>
-            <div class="item">
-              <div class="product_img">
-                <img src="{% static './images/blue_jacket_img4.png' %}" alt="blue_jacket_img" class="vertical_middle img-fluid"/>
-              </div>
-            </div>
+						{% endfor %}
           </div>
         </div>
         <div class="col-lg-6 wow fadeInLeft" data-wow-duration="1300ms">
