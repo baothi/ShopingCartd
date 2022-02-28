@@ -19,6 +19,5 @@ def menu_links(request):
                     subCats.append(itemSub)
                 item['sub'] = subCats
             cats.append(item)
-    print('cats=========',cats)
         
     return dict(cats = cats)
